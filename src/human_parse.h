@@ -8,7 +8,7 @@ class human_parse {
   
 private:
   
-  std::vector < std::string > salutations(13);
+  std::vector < std::string > salutations;
   
   std::vector < std::string > compounds;
   
