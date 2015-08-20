@@ -8,11 +8,17 @@ class human_parse {
   
 private:
   
-  std::vector < std::string > salutations;
+  std::set < std::string > salutations;
   
-  std::vector < std::string > compounds;
+  std::set < std::string > compounds;
   
-  std::vector < std::string > suffixes;
+  std::set < std::string > suffixes;
+  
+  std::deque < std::string > split_parts(std::string name);
+  
+  std::string erase_periods(std::string part);
+  
+  bool match_component(std::string part, std::set < std::string > & set_ref);
   
   std::vector < std::string > parse_single(std::string name);
   
