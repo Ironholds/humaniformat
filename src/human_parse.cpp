@@ -29,7 +29,7 @@ std::string human_parse::erase_periods(std::string part){
 }
 
 // See if a chunk matches a component
-bool human_parse::match_component(std::string part, std::set < std::string >& set_ref){
+bool human_parse::match_component(std::string part, std::set < std::string > set_ref){
   
   // Clean up - erase periods and lowercase
   part = erase_periods(part);
@@ -56,9 +56,8 @@ std::vector < std::string > human_parse::parse_single(std::string name){
   
   // Split and create output object.
   std::deque < std::string > split_name = split_parts(name);
-  std::vector < std::string > output(6);
-  output[5] = name;
-  
+  std::vector < std::string > output(5);
+
   // If there's only one element we assume it is a first name and return it.
   if(split_name.size() == 1){
     output[1] = split_name[0];
@@ -69,7 +68,7 @@ std::vector < std::string > human_parse::parse_single(std::string name){
   if(split_name.size() > 1 && match_component(split_name[0], salutations)){
     output[0] = split_name[0];
     split_name.pop_front();
-    output[1] = split_name[1];
+    output[1] = split_name[0];
     split_name.pop_front();
   } else {
     output[1] = split_name[0];
@@ -78,16 +77,68 @@ std::vector < std::string > human_parse::parse_single(std::string name){
   
   // If there is still > 1 element and we find a suffix, pop those two elements. Otherwise just one.
   if(split_name.size() > 1 && match_component(split_name[split_name.size() - 1], suffixes)){
-    output[5] = split_name[split_name.size() - 1];
-    split_name.pop_back();
     output[4] = split_name[split_name.size() - 1];
+    split_name.pop_back();
+    output[3] = split_name[split_name.size() - 1];
+    split_name.pop_back();
   } else if(split_name.size() > 0){
-    output[5] = split_name[split_name.size() - 1];
+    output[3] = split_name[split_name.size() - 1];
+    split_name.pop_back();
+  } else {
+    return output;
+  }
+  
+  // If there is still 1 or more elements we test for compounds
+  while(split_name.size() > 0 && match_component(split_name[split_name.size() - 1], compounds)){
+    output[3] = split_name[split_name.size() - 1] + " " + output[3];
     split_name.pop_back();
   }
   
+  // If we still have elements, those are middle names.
+  if(split_name.size() > 0){
+    output[2].append(split_name[0]);
+    for(unsigned int i = 1; i < split_name.size(); i++){
+      output[2].append(" " + split_name[i]);
+    }
+  }
+  
+  return output;
 }
 
+DataFrame human_parse::parse_vector(std::vector < std::string > names){
+  
+  // Measure and construct output
+  unsigned int input_size = names.size();
+  std::vector < std::string > salutation(input_size);
+  std::vector < std::string > first_name(input_size);
+  std::vector < std::string > middle_name(input_size);
+  std::vector < std::string > last_name(input_size);
+  std::vector < std::string > suffix(input_size);
+  std::vector < std::string > holding(5);
+  
+  // For each element, go nuts
+  for(unsigned int i = 0; i < input_size; i++){
+    if((i % 10000) == 0){
+      Rcpp::checkUserInterrupt();
+    }
+    
+    holding = parse_single(names[i]);
+    salutation[i] = holding[0];
+    first_name[i] = holding[1];
+    middle_name[i] = holding[2];
+    last_name[i] = holding[3];
+    suffix[i] = holding[4];
+
+  }
+  
+  return DataFrame::create(_["salutation"] = salutation,
+                           _["first_name"] = first_name,
+                           _["middle_name"] = middle_name,
+                           _["last_name"] = last_name,
+                           _["suffix"] = suffix,
+                           _["full_name"] = names,
+                           _["stringsAsFactors"] = false);
+}
 
 // Constructor
 human_parse::human_parse(){

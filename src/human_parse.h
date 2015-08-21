@@ -18,13 +18,13 @@ private:
   
   std::string erase_periods(std::string part);
   
-  bool match_component(std::string part, std::set < std::string > & set_ref);
+  bool match_component(std::string part, std::set < std::string > set_ref);
   
   std::vector < std::string > parse_single(std::string name);
   
 public:
   
-  DataFrame parse_vector(std::vector < std::string >& names);
+  DataFrame parse_vector(std::vector < std::string > names);
   
   human_parse();
   
