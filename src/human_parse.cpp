@@ -1,15 +1,16 @@
 #include "human_parse.h"
 
-std::deque < std::string > human_parse::split_parts(std::string name){
-  
+
+std::deque < std::string > human_parse::split_parts(std::string name, std::string split_on){
+
   std::deque < std::string > output;
   size_t last    = 0;
-  size_t current = name.find(" ");
+  size_t current = name.find(split_on);
   
   while(current != std::string::npos){
     output.push_back(name.substr(last, (current - last)));
     last = ++current;
-    current = name.find(" ", current);
+    current = name.find(split_on, current);
     if(current == std::string::npos){
       output.push_back(name.substr(last, name.size()));
     }
@@ -19,10 +20,12 @@ std::deque < std::string > human_parse::split_parts(std::string name){
 }
 
 // Erase periods
-std::string human_parse::erase_periods(std::string part){
+std::string human_parse::erase_char(std::string part, std::string char_to_erase){
+
+  unsigned int erase_size = char_to_erase.size();
   
-  for(size_t i = part.find("."); i != std::string::npos; i = part.find(".")){
-    part.erase(i, 1);
+  for(size_t i = part.find(char_to_erase); i != std::string::npos; i = part.find(char_to_erase)){
+    part.erase(i, erase_size);
   }
   
   return part;
@@ -32,7 +35,7 @@ std::string human_parse::erase_periods(std::string part){
 bool human_parse::match_component(std::string part, std::set < std::string > set_ref){
   
   // Clean up - erase periods and lowercase
-  part = erase_periods(part);
+  part = erase_char(part, ".");
   unsigned int input_size = part.size();
   for(unsigned int i = 0; i < input_size; i++){
     part[i] = tolower(part[i]);
@@ -55,7 +58,7 @@ std::vector < std::string > human_parse::parse_single(std::string name){
   }
   
   // Split and create output object.
-  std::deque < std::string > split_name = split_parts(name);
+  std::deque < std::string > split_name = split_parts(name, " ");
   std::vector < std::string > output(5);
 
   // If there's only one element we assume it is a first name and return it.
@@ -175,6 +178,7 @@ human_parse::human_parse(){
   suffixes.insert("ma");
   suffixes.insert("dmd");
   suffixes.insert("cme");
+  suffixes.insert("esq");
   
   // Compounds
   compounds.insert("vere");
@@ -182,6 +186,7 @@ human_parse::human_parse(){
   compounds.insert("van");
   compounds.insert("del");
   compounds.insert("de");
+  compounds.insert("den");
   compounds.insert("della");
   compounds.insert("der");
   compounds.insert("di");

@@ -5,14 +5,25 @@
 
 using namespace Rcpp;
 
-// humaniformat
-DataFrame humaniformat(std::vector < std::string > names);
-RcppExport SEXP humaniformat_humaniformat(SEXP namesSEXP) {
+// parse_names
+DataFrame parse_names(std::vector < std::string > names);
+RcppExport SEXP humaniformat_parse_names(SEXP namesSEXP) {
 BEGIN_RCPP
     Rcpp::RObject __result;
     Rcpp::RNGScope __rngScope;
     Rcpp::traits::input_parameter< std::vector < std::string > >::type names(namesSEXP);
-    __result = Rcpp::wrap(humaniformat(names));
+    __result = Rcpp::wrap(parse_names(names));
+    return __result;
+END_RCPP
+}
+// format_names
+std::vector < std::string > format_names(std::vector < std::string > names);
+RcppExport SEXP humaniformat_format_names(SEXP namesSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< std::vector < std::string > >::type names(namesSEXP);
+    __result = Rcpp::wrap(format_names(names));
     return __result;
 END_RCPP
 }

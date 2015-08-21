@@ -5,8 +5,8 @@ using namespace Rcpp;
 #define __HUMAN_PARSE__
 
 class human_parse {
-  
-private:
+
+protected:
   
   std::set < std::string > salutations;
   
@@ -14,11 +14,13 @@ private:
   
   std::set < std::string > suffixes;
   
-  std::deque < std::string > split_parts(std::string name);
+  std::deque < std::string > split_parts(std::string name, std::string split_on);
   
-  std::string erase_periods(std::string part);
+  std::string erase_char(std::string part, std::string char_to_erase);
   
   bool match_component(std::string part, std::set < std::string > set_ref);
+  
+private:
   
   std::vector < std::string > parse_single(std::string name);
   
