@@ -12,6 +12,10 @@ Please note that this project is released with a [Contributor Code of Conduct](C
 
 ###Installation
 
+To get the current version:
+
+    devtools::install_github("ironholds/humaniformat", ref = "0.1.0")
+    
 To get the development version:
 
     devtools::install_github("ironholds/humaniformat")
