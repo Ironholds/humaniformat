@@ -1,11 +1,16 @@
 #include "human_parse.h"
 
-
 std::deque < std::string > human_parse::split_parts(std::string name, std::string split_on){
 
   std::deque < std::string > output;
   size_t last    = 0;
   size_t current = name.find(split_on);
+  
+  // If there are no spaces, sod it.
+  if(current == std::string::npos){
+    output.push_back(name);
+    return output;
+  }
   
   while(current != std::string::npos){
     output.push_back(name.substr(last, (current - last)));

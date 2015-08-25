@@ -1,0 +1,5 @@
+Version 0.1.0 [WIP]
+-------------------------------------------------------------------------
+
+BUG FIXES
+* Fixed a segfault reported by Pavel Kirjanas, with the assistance of Bob Rudis
