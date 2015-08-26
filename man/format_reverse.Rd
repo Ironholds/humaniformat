@@ -2,7 +2,7 @@
 % Please edit documentation in R/RcppExports.R
 \name{format_reverse}
 \alias{format_reverse}
-\title{Reformats Reversed Names}
+\title{Reformat Reversed Names}
 \usage{
 format_reverse(names)
 }
@@ -26,6 +26,6 @@ format_reverse("Keyes, Oliver")
 }
 \seealso{
 \code{\link{parse_names}}, which works more reliably if reversed names have
-been reformatted.
+been reformatted, and \code{\link{format_period}} for period-separated names.
 }
 

@@ -1,4 +1,4 @@
-Version 0.1.0 [WIP]
+Version 0.2.0
 -------------------------------------------------------------------------
 
 FEATURES
@@ -8,7 +8,7 @@ FEATURES
 BUG FIXES
 * Fixed a segfault reported by Pavel Kirjanas, with the assistance of Bob Rudis
 
-Version 0.0.1
+Version 0.1.0
 -------------------------------------------------------------------------
 
 * Initial (prototype) release
