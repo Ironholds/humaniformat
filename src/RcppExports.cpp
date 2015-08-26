@@ -16,14 +16,25 @@ BEGIN_RCPP
     return __result;
 END_RCPP
 }
-// format_names
-std::vector < std::string > format_names(std::vector < std::string > names);
-RcppExport SEXP humaniformat_format_names(SEXP namesSEXP) {
+// format_reverse
+std::vector < std::string > format_reverse(std::vector < std::string > names);
+RcppExport SEXP humaniformat_format_reverse(SEXP namesSEXP) {
 BEGIN_RCPP
     Rcpp::RObject __result;
     Rcpp::RNGScope __rngScope;
     Rcpp::traits::input_parameter< std::vector < std::string > >::type names(namesSEXP);
-    __result = Rcpp::wrap(format_names(names));
+    __result = Rcpp::wrap(format_reverse(names));
+    return __result;
+END_RCPP
+}
+// format_period
+std::vector < std::string > format_period(std::vector < std::string > names);
+RcppExport SEXP humaniformat_format_period(SEXP namesSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< std::vector < std::string > >::type names(namesSEXP);
+    __result = Rcpp::wrap(format_period(names));
     return __result;
 END_RCPP
 }

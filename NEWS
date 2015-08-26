@@ -3,6 +3,7 @@ Version 0.1.0 [WIP]
 
 FEATURES
 * parse_names can now handle names with multiple suffixes accurately
+* Formatters for reversed and period-formatted names now added.
 
 BUG FIXES
 * Fixed a segfault reported by Pavel Kirjanas, with the assistance of Bob Rudis
