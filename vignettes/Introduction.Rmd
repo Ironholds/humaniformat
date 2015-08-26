@@ -1,0 +1,61 @@
+---
+title: "Introduction to humaniformat"
+author: "Oliver Keyes"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to humaniformat}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+`humaniformat` is an R package for formatting and parsing human names. With it, you can reformat names in various ways to standardise them and then take those reformatted names and parse thme, splitting out
+salutations, suffixes, and first- middle- and last-names.
+
+## Formatting
+
+Names come in a lot of different formats, and making something that can machine-read all of them is a pretty difficult problem. Instead, `humaniformat` comes with formatters designed to standardise common formats for names.
+
+Sometimes names are reversed, and comma-separated, like "`Keyes, Oliver`". For those you can use `format_reverse()`, which is designed for precisely this class of name. Names that are *not* comma separated won't be touched.
+
+```{r eval=FALSE}
+library(humaniformat)
+names <- c("Oliver Keyes", "Keyes, Oliver")
+format_reverse(names)
+
+[1] "Oliver Keyes" "Oliver Keyes"
+```
+
+Alternatively, we could be dealing with initials rather than full names, and those are period-separated, but not always in the same way. "G.K. Chesterton" and "G.K.Chesterton" are very similar but from a machine's point of view look very different - the first would be parsed as a first and last name, and the second as a single first name, when the real answer is that we have a first, middle and last name.
+
+`format_period` takes names with this potentially inconsistent formatting and reworks them to ensure that
+initials are always space-separated. This makes them a lot easier to parse, and a lot easier to deal with in other programming contexts too:
+
+```{r eval=FALSE}
+names <- c("G.K. Chesterton", "G.K.Chesterton")
+format_period(names)
+
+[1] "G. K. Chesterton" "G. K. Chesterton"
+```
+
+## Parsing names
+
+Once you've got your formatted names (or even if you haven't - maybe your names came in a standard format) you can parse them. This produces a data.frame of salutations ("Prof"), first names, middle names, last names, and suffixes ("PhD"):
+
+```{r eval=FALSE}
+names <- c("G.K. Chesterton", "G.K.Chesterton")
+narmes <- format_period(names)
+parsed_chestertons <- parse_names(names)
+str(parsed_chestertons)
+
+'data.frame':	2 obs. of  6 variables:
+ $ salutation : chr  "" ""
+ $ first_name : chr  "G.K." "G.K.Chesterton"
+ $ middle_name: chr  "" ""
+ $ last_name  : chr  "Chesterton" ""
+ $ suffix     : chr  "" ""
+ $ full_name  : chr  "G.K. Chesterton" "G.K.Chesterton"
+```
+
+## Features and bugs
+If you have ideas for other features that would make name handling easier, or find a bug, the best approach is to either [report it](https://github.com/Ironholds/humaniformat/issues) or [add it](https://github.com/Ironholds/humaniformat/pulls)!

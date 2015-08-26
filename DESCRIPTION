@@ -9,6 +9,8 @@ LazyData: true
 URL: https://github.com/ironholds/humaniformat/
 BugReports: https://github.com/ironholds/humaniformat/issues
 Suggests: 
-    testthat
+    testthat,
+    knitr
 LinkingTo: Rcpp
 Imports: Rcpp
+VignetteBuilder: knitr
