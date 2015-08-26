@@ -156,6 +156,7 @@ DataFrame human_parse::parse_vector(std::vector < std::string > names){
                            _["stringsAsFactors"] = false);
 }
 
+
 // Constructor
 human_parse::human_parse(){
   

@@ -1,6 +1,5 @@
 #include "human_parse.h"
 
-
 #ifndef __HUMAN_FORMAT__
 #define __HUMAN_FORMAT__
 

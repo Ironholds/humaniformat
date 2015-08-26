@@ -77,3 +77,11 @@ format_period <- function(names) {
     .Call('humaniformat_format_period', PACKAGE = 'humaniformat', names)
 }
 
+get_ <- function(names, element) {
+    .Call('humaniformat_get_', PACKAGE = 'humaniformat', names, element)
+}
+
+set_ <- function(names, element, replacement) {
+    .Call('humaniformat_set_', PACKAGE = 'humaniformat', names, element, replacement)
+}
+

@@ -38,3 +38,28 @@ BEGIN_RCPP
     return __result;
 END_RCPP
 }
+// get_
+std::vector < std::string > get_(std::vector < std::string > names, int element);
+RcppExport SEXP humaniformat_get_(SEXP namesSEXP, SEXP elementSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< std::vector < std::string > >::type names(namesSEXP);
+    Rcpp::traits::input_parameter< int >::type element(elementSEXP);
+    __result = Rcpp::wrap(get_(names, element));
+    return __result;
+END_RCPP
+}
+// set_
+std::vector < std::string > set_(std::vector < std::string > names, int element, std::string replacement);
+RcppExport SEXP humaniformat_set_(SEXP namesSEXP, SEXP elementSEXP, SEXP replacementSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< std::vector < std::string > >::type names(namesSEXP);
+    Rcpp::traits::input_parameter< int >::type element(elementSEXP);
+    Rcpp::traits::input_parameter< std::string >::type replacement(replacementSEXP);
+    __result = Rcpp::wrap(set_(names, element, replacement));
+    return __result;
+END_RCPP
+}

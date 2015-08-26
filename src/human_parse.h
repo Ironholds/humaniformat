@@ -20,8 +20,6 @@ protected:
   
   bool match_component(std::string part, std::set < std::string > set_ref);
   
-private:
-  
   std::vector < std::string > parse_single(std::string name);
   
 public:
