@@ -83,18 +83,26 @@ std::vector < std::string > human_parse::parse_single(std::string name){
     split_name.pop_front();
   }
   
-  // If there is still > 1 element and we find a suffix, pop those two elements. Otherwise just one.
-  if(split_name.size() > 1 && match_component(split_name[split_name.size() - 1], suffixes)){
-    output[4] = split_name[split_name.size() - 1];
-    split_name.pop_back();
-    output[3] = split_name[split_name.size() - 1];
-    split_name.pop_back();
-  } else if(split_name.size() > 0){
+  // If there's still > 1 elemenent, what about suffixes?
+  if(split_name.size() > 1){
+    while(split_name.size() > 1 && match_component(split_name[split_name.size() - 1], suffixes)){
+      if(output[4] == ""){
+        output[4] = split_name[split_name.size() - 1];
+      } else {
+        output[4] = split_name[split_name.size() - 1] + " " + output[4];
+      }
+      split_name.pop_back();
+    }
+  }
+  
+  // If there's only >1 element, surnames
+  if(split_name.size() > 0){
     output[3] = split_name[split_name.size() - 1];
     split_name.pop_back();
   } else {
     return output;
   }
+
   
   // If there is still 1 or more elements we test for compounds
   while(split_name.size() > 0 && match_component(split_name[split_name.size() - 1], compounds)){

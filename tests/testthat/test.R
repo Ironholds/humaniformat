@@ -48,3 +48,15 @@ test_that("Names with all elements can be parsed", {
   expect_true(result["suffix"] == "PhD")
   
 })
+
+test_that("Names with no spaces do not break everything", {
+  result <- unlist(parse_names("G.R.Dobbs"))
+  expect_true(result["first_name"] == "G.R.Dobbs")
+})
+
+test_that("Names with multiple suffixes can be parsed", {
+  result <- unlist(parse_names("Jim Jeffries Jr PhD"))
+  expect_true(result["first_name"] == "Jim")
+  expect_true(result["last_name"] == "Jeffries")
+  expect_true(result["suffix"] == "Jr PhD")
+})
