@@ -16,6 +16,11 @@ std::string human_getset::set_single(std::string name, int element, std::string 
       output.append(" ");
     }
   }
+  
+  // Final check for trailing spaces
+  if(output[output.size()-1] == ' '){
+    output.erase(output.size()-1,1);
+  }
 
   return output;
 }
