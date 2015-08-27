@@ -57,5 +57,23 @@ str(parsed_chestertons)
  $ full_name  : chr  "G.K. Chesterton" "G.K.Chesterton"
 ```
 
+## Component retrieval and setting
+
+As with the excellent `lubridate` package, `humaniformat` contains the ability to both retrieve and *set*
+elements of names. To take the example of salutations, we can retrieve salutations for a given name (or
+vector of names) all on their own, or redefine them as we want:
+
+```{r eval=FALSE}
+names <- c("Mr Jim Jeffries PhD", "Ms Tabitha Hawthorn PhD")
+salutation(names)
+[1] "Mr" "Ms"
+
+salutation(names) <- "Professor"
+names
+[1] "Professor Jim Jeffries"     "Professor Tabitha Hawthorn"
+```
+
+Identical functionaliy exists for other components; `first_name`, `middle_name`, `last_name` and `suffix`.
+
 ## Features and bugs
 If you have ideas for other features that would make name handling easier, or find a bug, the best approach is to either [report it](https://github.com/Ironholds/humaniformat/issues) or [add it](https://github.com/Ironholds/humaniformat/pulls)!

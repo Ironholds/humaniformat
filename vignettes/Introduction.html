@@ -10,7 +10,7 @@
 
 <meta name="author" content="Oliver Keyes" />
 
-<meta name="date" content="2015-08-26" />
+<meta name="date" content="2015-08-27" />
 
 <title>Introduction to humaniformat</title>
 
@@ -54,7 +54,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <div id="header">
 <h1 class="title">Introduction to humaniformat</h1>
 <h4 class="author"><em>Oliver Keyes</em></h4>
-<h4 class="date"><em>2015-08-26</em></h4>
+<h4 class="date"><em>2015-08-27</em></h4>
 </div>
 
 
@@ -90,6 +90,18 @@ parsed_chestertons &lt;-<span class="st"> </span><span class="kw">parse_names</s
  $<span class="st"> </span>last_name  :<span class="st"> </span>chr  <span class="st">&quot;Chesterton&quot;</span> <span class="st">&quot;&quot;</span>
  $<span class="st"> </span>suffix     :<span class="st"> </span>chr  <span class="st">&quot;&quot;</span> <span class="st">&quot;&quot;</span>
  $<span class="st"> </span>full_name  :<span class="st"> </span>chr  <span class="st">&quot;G.K. Chesterton&quot;</span> <span class="st">&quot;G.K.Chesterton&quot;</span></code></pre>
+</div>
+<div id="component-retrieval-and-setting" class="section level2">
+<h2>Component retrieval and setting</h2>
+<p>As with the excellent <code>lubridate</code> package, <code>humaniformat</code> contains the ability to both retrieve and <em>set</em> elements of names. To take the example of salutations, we can retrieve salutations for a given name (or vector of names) all on their own, or redefine them as we want:</p>
+<pre class="sourceCode r"><code class="sourceCode r">names &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Mr Jim Jeffries PhD&quot;</span>, <span class="st">&quot;Ms Tabitha Hawthorn PhD&quot;</span>)
+<span class="kw">salutation</span>(names)
+[<span class="dv">1</span>] <span class="st">&quot;Mr&quot;</span> <span class="st">&quot;Ms&quot;</span>
+
+<span class="kw">salutation</span>(names) &lt;-<span class="st"> &quot;Professor&quot;</span>
+names
+[<span class="dv">1</span>] <span class="st">&quot;Professor Jim Jeffries&quot;</span>     <span class="st">&quot;Professor Tabitha Hawthorn&quot;</span></code></pre>
+<p>Identical functionaliy exists for other components; <code>first_name</code>, <code>middle_name</code>, <code>last_name</code> and <code>suffix</code>.</p>
 </div>
 <div id="features-and-bugs" class="section level2">
 <h2>Features and bugs</h2>

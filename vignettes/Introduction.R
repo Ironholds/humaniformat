@@ -25,3 +25,12 @@
 #   $ suffix     : chr  "" ""
 #   $ full_name  : chr  "G.K. Chesterton" "G.K.Chesterton"
 
+## ----eval=FALSE----------------------------------------------------------
+#  names <- c("Mr Jim Jeffries PhD", "Ms Tabitha Hawthorn PhD")
+#  salutation(names)
+#  [1] "Mr" "Ms"
+#  
+#  salutation(names) <- "Professor"
+#  names
+#  [1] "Professor Jim Jeffries"     "Professor Tabitha Hawthorn"
+

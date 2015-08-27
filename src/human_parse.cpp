@@ -169,6 +169,7 @@ human_parse::human_parse(){
   salutations.insert("ms");
   salutations.insert("dr");
   salutations.insert("prof");
+  salutations.insert("professor");
   salutations.insert("rev");
   salutations.insert("fr");
   salutations.insert("judge");
