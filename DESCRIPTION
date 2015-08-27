@@ -12,5 +12,7 @@ Suggests:
     testthat,
     knitr
 LinkingTo: Rcpp
-Imports: Rcpp
+Imports: 
+        Rcpp,
+        methods
 VignetteBuilder: knitr
