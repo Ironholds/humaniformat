@@ -65,12 +65,33 @@ protected:
    */
   bool match_component(std::string part, std::set < std::string > set_ref);
   
+  /**
+   * A function for taking a single name and parsing it
+   * 
+   * @param name a string (ideally a human name)
+   * 
+   * @return a vector containing the salutation, first name, middle name(s),
+   * last name, and suffix(es). An element is an empty string if its component
+   * could not be identified.
+   */
   std::vector < std::string > parse_single(std::string name);
   
 public:
   
+  /**
+   * A function for taking a vector of names and parsing them
+   * 
+   * @param names a string vector containing human names
+   * 
+   * @return a data.frame containing the salutations, first names, middle name(s),
+   * last names, suffix(es) and full names of each element of names, as columns.
+   * An element is an empty string if its component could not be identified.
+   */
   DataFrame parse_vector(std::vector < std::string > names);
   
+  /**
+   * The constructor
+   */
   human_parse();
   
 };
