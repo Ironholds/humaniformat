@@ -10,7 +10,7 @@ std::string human_getset::set_single(std::string name, int element, std::string 
   split_name[element] = replacement;
   std::string output;
   
-  for(unsigned int i = 0; i < (split_name.size() - 1); i++){
+  for(unsigned int i = 0; i < split_name.size(); i++){
     output.append(split_name[i]);
     if(i < (split_name.size() - 1) && split_name[i] != ""){
       output.append(" ");
