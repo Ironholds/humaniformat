@@ -1,9 +1,11 @@
 Package: humaniformat
 Title: A Parser for Human Names
-Version: 0.2.0
+Version: 0.5.0
 Author: Oliver Keyes
 Maintainer: Oliver Keyes <ironholds@gmail.com>
-Description: Human names are complicated and nonstandard things. Humaniformat attempts to provide functions for parsing those names, making a best-guess attempt to distinguish sub-components such as prefixes, suffixes, middle names and salutations.
+Description: Human names are complicated and nonstandard things. Humaniformat, which is based on Anthony Ettinger's 'humanparser'
+             project (https://github.com/chovy/humanparser) provides functions for parsing human names,
+             making a best-guess attempt to distinguish sub-components such as prefixes, suffixes, middle names and salutations.
 License: MIT + file LICENSE
 LazyData: true
 URL: https://github.com/ironholds/humaniformat/
