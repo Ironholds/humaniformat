@@ -5,6 +5,8 @@ __Author:__ Oliver Keyes <br/>
 __License:__ [MIT](http://opensource.org/licenses/MIT)<br/>
 __Status:__ Stable
 
+![downloads](http://cranlogs.r-pkg.org/badges/grand-total/humaniformat)
+
 ### Description
 `humaniformat` (`humaniform` + `format`) is a human names parser for R. With it, you can parse names, distinguishing salutations, suffixes, and first, middle and last names. `humaniformat` recognises compound last names (and preserves them) from a wide range of cultures, although the name format itself is somewhat Western-centric (it assumes, for example, that first name comes before last name, which is not always the standard).
 
