@@ -64,26 +64,40 @@ std::string human_format::period_format(std::string name){
   return output;
 }
 
-std::vector < std::string > human_format::reverse_format_vector(std::vector < std::string > names){
+CharacterVector human_format::reverse_format_vector(CharacterVector names){
   
-  for(unsigned int i = 0; i < names.size(); i++){
+  unsigned int input_size = names.size();
+  CharacterVector output(input_size);
+  
+  for(unsigned int i = 0; i < input_size; i++){
     if((i % 10000) == 0){
       Rcpp::checkUserInterrupt();
     }
-    names[i] = reverse_format(names[i]);
+    if(names[i] == NA_STRING){
+      output[i] = NA_STRING;
+    } else {
+      output[i] = reverse_format(Rcpp::as<std::string>(names[i]));
+    }
   }
   
-  return names;
+  return output;
 }
 
-std::vector < std::string > human_format::period_format_vector(std::vector < std::string > names){
+CharacterVector human_format::period_format_vector(CharacterVector names){
   
-  for(unsigned int i = 0; i < names.size(); i++){
+  unsigned int input_size = names.size();
+  CharacterVector output(input_size);
+  
+  for(unsigned int i = 0; i < input_size; i++){
     if((i % 10000) == 0){
       Rcpp::checkUserInterrupt();
     }
-    names[i] = period_format(names[i]);
+    if(names[i] == NA_STRING){
+      output[i] = NA_STRING;
+    } else {
+      output[i] = period_format(Rcpp::as<std::string>(names[i]));
+    }
   }
   
-  return names;
+  return output;
 }

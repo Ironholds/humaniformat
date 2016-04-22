@@ -1,20 +1,23 @@
 Package: humaniformat
 Title: A Parser for Human Names
-Version: 0.5.0
-Author: Oliver Keyes
+Version: 0.6.0
+Author: Oliver Keyes [aut, cre]
 Maintainer: Oliver Keyes <ironholds@gmail.com>
-Description: Human names are complicated and nonstandard things. Humaniformat, which is based on Anthony Ettinger's 'humanparser'
-             project (https://github.com/chovy/humanparser) provides functions for parsing human names,
-             making a best-guess attempt to distinguish sub-components such as prefixes, suffixes, middle names and salutations.
+Description: Human names are complicated and nonstandard things. Humaniformat,
+    which is based on Anthony Ettinger's 'humanparser' project (https://github.com/
+    chovy/humanparser) provides functions for parsing human names, making a best-
+    guess attempt to distinguish sub-components such as prefixes, suffixes, middle
+    names and salutations.
 License: MIT + file LICENSE
 LazyData: true
 URL: https://github.com/ironholds/humaniformat/
 BugReports: https://github.com/ironholds/humaniformat/issues
-Suggests: 
+Suggests:
     testthat,
     knitr
 LinkingTo: Rcpp
-Imports: 
-        Rcpp,
-        methods
+Imports:
+    Rcpp,
+    methods
 VignetteBuilder: knitr
+RoxygenNote: 5.0.1

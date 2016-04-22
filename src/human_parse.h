@@ -74,7 +74,7 @@ protected:
    * last name, and suffix(es). An element is an empty string if its component
    * could not be identified.
    */
-  std::vector < std::string > parse_single(std::string name);
+  CharacterVector parse_single(std::string name);
   
 public:
   
@@ -87,7 +87,7 @@ public:
    * last names, suffix(es) and full names of each element of names, as columns.
    * An element is an empty string if its component could not be identified.
    */
-  DataFrame parse_vector(std::vector < std::string > names);
+  DataFrame parse_vector(CharacterVector names);
   
   /**
    * The constructor

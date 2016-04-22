@@ -16,7 +16,7 @@ private:
    * 
    * @return a string containing the requested element.
    */
-  std::string get_single(std::string name, int element);
+  String get_single(std::string name, int element);
   
   /**
    * A function for taking a single name and setting a specified element of it
@@ -43,7 +43,7 @@ public:
    * 
    * @return a string vector containing each instance of the requested element.
    */
-  std::vector < std::string > get_vector(std::vector < std::string > names, int element);
+  CharacterVector get_vector(CharacterVector names, int element);
   
   /**
    * A function for taking a vector of names and setting a specified element of each
@@ -57,8 +57,7 @@ public:
    * 
    * @return a string vector containing the re-specified names.
    */
-  std::vector < std::string > set_vector(std::vector < std::string > names, int element,
-                                         std::string replacement);
+  CharacterVector set_vector(CharacterVector, int element, std::string replacement);
   
 };
 

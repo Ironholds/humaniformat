@@ -55,7 +55,7 @@ bool human_parse::match_component(std::string part, std::set < std::string > set
   return false;
 }
 
-std::vector < std::string > human_parse::parse_single(std::string name){
+CharacterVector human_parse::parse_single(std::string name){
   
   // If it's literally just an empty string, throw things.
   if(name.size() == 0){
@@ -64,11 +64,15 @@ std::vector < std::string > human_parse::parse_single(std::string name){
   
   // Split and create output object.
   std::deque < std::string > split_name = split_parts(name, " ");
-  std::vector < std::string > output(5);
+  CharacterVector output(5);
 
   // If there's only one element we assume it is a first name and return it.
   if(split_name.size() == 1){
     output[1] = split_name[0];
+    output[2] = NA_STRING;
+    output[0] = NA_STRING;
+    output[3] = NA_STRING;
+    output[4] = NA_STRING;
     return output;
   }
   
@@ -100,6 +104,11 @@ std::vector < std::string > human_parse::parse_single(std::string name){
     output[3] = split_name[split_name.size() - 1];
     split_name.pop_back();
   } else {
+    for(unsigned int i = 0; i < output.size(); i++){
+      if(output[i] == ""){
+        output[i] = NA_STRING;
+      }
+    }
     return output;
   }
 
@@ -112,25 +121,25 @@ std::vector < std::string > human_parse::parse_single(std::string name){
   
   // If we still have elements, those are middle names.
   if(split_name.size() > 0){
-    output[2].append(split_name[0]);
+    output[2] += split_name[0];
     for(unsigned int i = 1; i < split_name.size(); i++){
-      output[2].append(" " + split_name[i]);
+      output[2] += (" " + split_name[i]);
     }
   }
   
   return output;
 }
 
-DataFrame human_parse::parse_vector(std::vector < std::string > names){
+DataFrame human_parse::parse_vector(CharacterVector names){
   
   // Measure and construct output
   unsigned int input_size = names.size();
-  std::vector < std::string > salutation(input_size);
-  std::vector < std::string > first_name(input_size);
-  std::vector < std::string > middle_name(input_size);
-  std::vector < std::string > last_name(input_size);
-  std::vector < std::string > suffix(input_size);
-  std::vector < std::string > holding(5);
+  CharacterVector salutation(input_size);
+  CharacterVector first_name(input_size);
+  CharacterVector middle_name(input_size);
+  CharacterVector last_name(input_size);
+  CharacterVector suffix(input_size);
+  CharacterVector holding(5);
   
   // For each element, go nuts
   for(unsigned int i = 0; i < input_size; i++){
@@ -138,12 +147,21 @@ DataFrame human_parse::parse_vector(std::vector < std::string > names){
       Rcpp::checkUserInterrupt();
     }
     
-    holding = parse_single(names[i]);
-    salutation[i] = holding[0];
-    first_name[i] = holding[1];
-    middle_name[i] = holding[2];
-    last_name[i] = holding[3];
-    suffix[i] = holding[4];
+    if(names[i] == NA_STRING){
+      salutation[i] = NA_STRING;
+      first_name[i] = NA_STRING;
+      middle_name[i] = NA_STRING;
+      last_name[i] = NA_STRING;
+      suffix[i] = NA_STRING;
+    } else {
+      holding = parse_single(Rcpp::as<std::string>(names[i]));
+      salutation[i] = holding[0];
+      first_name[i] = holding[1];
+      middle_name[i] = holding[2];
+      last_name[i] = holding[3];
+      suffix[i] = holding[4];
+    }
+
 
   }
   

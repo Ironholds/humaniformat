@@ -6,57 +6,57 @@
 using namespace Rcpp;
 
 // parse_names
-DataFrame parse_names(std::vector < std::string > names);
+DataFrame parse_names(CharacterVector names);
 RcppExport SEXP humaniformat_parse_names(SEXP namesSEXP) {
 BEGIN_RCPP
     Rcpp::RObject __result;
     Rcpp::RNGScope __rngScope;
-    Rcpp::traits::input_parameter< std::vector < std::string > >::type names(namesSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type names(namesSEXP);
     __result = Rcpp::wrap(parse_names(names));
     return __result;
 END_RCPP
 }
 // format_reverse
-std::vector < std::string > format_reverse(std::vector < std::string > names);
+CharacterVector format_reverse(CharacterVector names);
 RcppExport SEXP humaniformat_format_reverse(SEXP namesSEXP) {
 BEGIN_RCPP
     Rcpp::RObject __result;
     Rcpp::RNGScope __rngScope;
-    Rcpp::traits::input_parameter< std::vector < std::string > >::type names(namesSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type names(namesSEXP);
     __result = Rcpp::wrap(format_reverse(names));
     return __result;
 END_RCPP
 }
 // format_period
-std::vector < std::string > format_period(std::vector < std::string > names);
+CharacterVector format_period(CharacterVector names);
 RcppExport SEXP humaniformat_format_period(SEXP namesSEXP) {
 BEGIN_RCPP
     Rcpp::RObject __result;
     Rcpp::RNGScope __rngScope;
-    Rcpp::traits::input_parameter< std::vector < std::string > >::type names(namesSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type names(namesSEXP);
     __result = Rcpp::wrap(format_period(names));
     return __result;
 END_RCPP
 }
 // get_
-std::vector < std::string > get_(std::vector < std::string > names, int element);
+CharacterVector get_(CharacterVector names, int element);
 RcppExport SEXP humaniformat_get_(SEXP namesSEXP, SEXP elementSEXP) {
 BEGIN_RCPP
     Rcpp::RObject __result;
     Rcpp::RNGScope __rngScope;
-    Rcpp::traits::input_parameter< std::vector < std::string > >::type names(namesSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type names(namesSEXP);
     Rcpp::traits::input_parameter< int >::type element(elementSEXP);
     __result = Rcpp::wrap(get_(names, element));
     return __result;
 END_RCPP
 }
 // set_
-std::vector < std::string > set_(std::vector < std::string > names, int element, std::string replacement);
+CharacterVector set_(CharacterVector names, int element, std::string replacement);
 RcppExport SEXP humaniformat_set_(SEXP namesSEXP, SEXP elementSEXP, SEXP replacementSEXP) {
 BEGIN_RCPP
     Rcpp::RObject __result;
     Rcpp::RNGScope __rngScope;
-    Rcpp::traits::input_parameter< std::vector < std::string > >::type names(namesSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type names(namesSEXP);
     Rcpp::traits::input_parameter< int >::type element(elementSEXP);
     Rcpp::traits::input_parameter< std::string >::type replacement(replacementSEXP);
     __result = Rcpp::wrap(set_(names, element, replacement));

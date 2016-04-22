@@ -19,3 +19,9 @@ test_that("Terminating commas do not cause issues", {
 test_that("Initial commas do not cause issues", {
   expect_true(format_reverse(", Keyes, Oliver") == "Oliver Keyes")
 })
+
+test_that("NA support works", {
+  data <- format_reverse(c(", Keyes, Oliver", NA))
+  expect_true(data[1] == "Oliver Keyes")
+  expect_true(is.na(data[2]))
+})

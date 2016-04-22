@@ -41,7 +41,7 @@ public:
    * 
    * @return a string vector containing the reformatted names.
    */
-  std::vector < std::string > reverse_format_vector(std::vector < std::string > names);
+  CharacterVector reverse_format_vector(CharacterVector names);
   
   /**
    * A function for taking a vector of names in the form (initial.initial. lastname)
@@ -52,7 +52,7 @@ public:
    * @return a string vector containing the reformatted names, where each period-separated
    * element before the first space is now space-separated.
    */
-  std::vector < std::string > period_format_vector(std::vector < std::string > names);
+  CharacterVector period_format_vector(CharacterVector names);
   
 };
 
