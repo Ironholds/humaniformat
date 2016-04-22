@@ -2,6 +2,9 @@
 
 String human_getset::get_single(std::string name, int element){
   CharacterVector split_name = parse_single(name);
+  if(split_name[element] == ""){
+    return NA_STRING;
+  }
   return split_name[element];
 }
 
@@ -30,7 +33,6 @@ std::string human_getset::set_single(std::string name, int element, std::string 
 CharacterVector human_getset::get_vector(CharacterVector names, int element){
   
   CharacterVector output(names.size());
-  String test;
   for(unsigned int i = 0; i < names.size(); i++){
     if(names[i] == NA_STRING){
       output[i] = NA_STRING;

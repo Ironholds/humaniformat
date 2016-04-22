@@ -127,6 +127,13 @@ CharacterVector human_parse::parse_single(std::string name){
     }
   }
   
+  // And empty strings are NAs! Oh if only I could preallocate this :/
+  for(unsigned int i = 0; i < 5; i++){
+    if(output[i] == ""){
+      output[i] = NA_STRING;
+    }
+  }
+  
   return output;
 }
 

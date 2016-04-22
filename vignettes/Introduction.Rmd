@@ -44,17 +44,17 @@ Once you've got your formatted names (or even if you haven't - maybe your names 
 
 ```{r eval=FALSE}
 names <- c("G.K. Chesterton", "G.K.Chesterton")
-narmes <- format_period(names)
+names <- format_period(names)
 parsed_chestertons <- parse_names(names)
 str(parsed_chestertons)
 
 'data.frame':	2 obs. of  6 variables:
- $ salutation : chr  "" ""
- $ first_name : chr  "G.K." "G.K.Chesterton"
- $ middle_name: chr  "" ""
- $ last_name  : chr  "Chesterton" ""
- $ suffix     : chr  "" ""
- $ full_name  : chr  "G.K. Chesterton" "G.K.Chesterton"
+ $ salutation : chr  NA NA
+ $ first_name : chr  "G." "G."
+ $ middle_name: chr  "K." "K."
+ $ last_name  : chr  "Chesterton" "Chesterton"
+ $ suffix     : chr  NA NA
+ $ full_name  : chr  "G. K. Chesterton" "G. K. Chesterton"
 ```
 
 ## Component retrieval and setting
