@@ -5,9 +5,9 @@ Date: 2016-04-24
 Author: Oliver Keyes [aut, cre]
 Maintainer: Oliver Keyes <ironholds@gmail.com>
 Description: Human names are complicated and nonstandard things. Humaniformat,
-    which is based on Anthony Ettinger's 'humanparser' project (https://github.com/
-    chovy/humanparser) provides functions for parsing human names, making a best-
-    guess attempt to distinguish sub-components such as prefixes, suffixes, middle
+    which is based on Anthony Ettinger's 'humanparser' project
+    <https://github.com/chovy/humanparser> provides functions for parsing human names,
+    making a best-guess attempt to distinguish sub-components such as prefixes, suffixes, middle
     names and salutations.
 License: MIT + file LICENSE
 LazyData: true
