@@ -31,3 +31,10 @@ test_that("Individual components can be set", {
   suffix(name) <- "Jr"
   expect_true(name == "Hon Toby Andrew Smith Jr")
 })
+
+test_that("Setting handles NAs correctly", {
+  
+  name <- "Mr Jim Samuel Jeffries PhD"
+  salutation(name) <- NA_character_
+  expect_true(salutation(name), equals("Mr"))
+})

@@ -44,9 +44,13 @@ CharacterVector human_getset::get_vector(CharacterVector names, int element){
   return output;
 }
 
-CharacterVector human_getset::set_vector(CharacterVector names, int element, std::string replacement){
+CharacterVector human_getset::set_vector(CharacterVector names, int element, String replacement){
   
   CharacterVector output(names.size());
+  
+  if(replacement == NA_STRING){
+    return names;
+  }
   
   for(unsigned int i = 0; i < names.size(); i++){
     if(names[i] == NA_STRING){

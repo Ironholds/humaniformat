@@ -57,7 +57,7 @@ public:
    * 
    * @return a string vector containing the re-specified names.
    */
-  CharacterVector set_vector(CharacterVector, int element, std::string replacement);
+  CharacterVector set_vector(CharacterVector, int element, String replacement);
   
 };
 

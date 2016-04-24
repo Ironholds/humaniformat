@@ -12,8 +12,7 @@ parse_names(names)
 \value{
 a data.frame with the columns \code{salutation}, \code{first_name},
 \code{middle_name}, \code{last_name}, \code{suffix} and \code{full_name} (which contains the original name). In the
-event that a name doesn't \emph{have} a salutation, middle name, suffix, or so on, an empty string will be in that
-field instead.
+event that a name doesn't \emph{have} a salutation, middle name, suffix, or so on, an NA will appear.
 }
 \description{
 human names are complex things; sometimes people have honorifics, or not. Or a single middle name, or many. Or

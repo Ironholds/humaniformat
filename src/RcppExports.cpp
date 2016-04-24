@@ -51,14 +51,14 @@ BEGIN_RCPP
 END_RCPP
 }
 // set_
-CharacterVector set_(CharacterVector names, int element, std::string replacement);
+CharacterVector set_(CharacterVector names, int element, String replacement);
 RcppExport SEXP humaniformat_set_(SEXP namesSEXP, SEXP elementSEXP, SEXP replacementSEXP) {
 BEGIN_RCPP
     Rcpp::RObject __result;
     Rcpp::RNGScope __rngScope;
     Rcpp::traits::input_parameter< CharacterVector >::type names(namesSEXP);
     Rcpp::traits::input_parameter< int >::type element(elementSEXP);
-    Rcpp::traits::input_parameter< std::string >::type replacement(replacementSEXP);
+    Rcpp::traits::input_parameter< String >::type replacement(replacementSEXP);
     __result = Rcpp::wrap(set_(names, element, replacement));
     return __result;
 END_RCPP
