@@ -36,5 +36,5 @@ test_that("Setting handles NAs correctly", {
   
   name <- "Mr Jim Samuel Jeffries PhD"
   salutation(name) <- NA_character_
-  expect_true(salutation(name), equals("Mr"))
+  expect_equal(salutation(name), "Mr")
 })
