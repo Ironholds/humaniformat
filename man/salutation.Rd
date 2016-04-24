@@ -17,7 +17,9 @@ salutation(x) <- value
 \description{
 as in the lubridate package, individual components of a name
 can be both extracted or set using the relevant function call - see the
-examples.
+examples. In the event that you attempt to set a component to NA, no modification
+will be made; in the event that you try to get a component that isn't present, an
+NA will be returned.
 }
 \examples{
 #Get a salutation
