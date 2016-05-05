@@ -200,6 +200,7 @@ human_parse::human_parse(){
   salutations.insert("judge");
   salutations.insert("hon");
   salutations.insert("honorable");
+  salutations.insert("sir");
   
   // Suffixes
   suffixes.insert("i");
