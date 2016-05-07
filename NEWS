@@ -2,7 +2,7 @@ Version 0.7.0 [WIP]
 -------------------------------------------------------------------------
 
 FEATURES
-* Added "Sir" to salutations
+* Salutation support now includes more traditional titles of nobility.
 
 Version 0.6.0
 -------------------------------------------------------------------------

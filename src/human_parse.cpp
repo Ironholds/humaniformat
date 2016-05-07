@@ -201,6 +201,9 @@ human_parse::human_parse(){
   salutations.insert("hon");
   salutations.insert("honorable");
   salutations.insert("sir");
+  salutations.insert("dame");
+  salutations.insert("lady");
+  salutations.insert("lord");
   
   // Suffixes
   suffixes.insert("i");
