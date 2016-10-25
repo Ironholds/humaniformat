@@ -246,5 +246,5 @@ human_parse::human_parse(){
   compounds.insert("bin");
   compounds.insert("ben");
   compounds.insert("ibn");
-  
+  compounds.insert("ap");
 }
